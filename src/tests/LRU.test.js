@@ -1,5 +1,5 @@
 const { expect } = require("chai");
-const LRU = require("lru");
+const LRU = require("../lru");
 
 describe("LRU Cache", () => {
   it("should be able to create a new LRU cache with fixed capacity", () => {

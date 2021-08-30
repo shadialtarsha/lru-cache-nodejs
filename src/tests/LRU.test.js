@@ -28,17 +28,19 @@ describe("LRU Cache", () => {
     expect(newCache.get("key1")).to.eql(-1);
   });
 
-  it("should replace the value of an existing key", () => {
+  it("should replace the value of an existing key and place the value in the beginning", () => {
     const capacity = 2;
     const newCache = new LRU(capacity);
 
     newCache.put("key1", "value1");
     newCache.put("key2", "value2");
     expect(newCache.size).to.eq(2);
+    expect(newCache.doublyList.head.value).to.be.eq("value2");
 
-    newCache.put("key2", "newValue");
+    newCache.put("key1", "newValue");
+    expect(newCache.doublyList.head.value).to.be.eq("newValue");
 
-    expect(newCache.get("key2")).to.eq("newValue");
+    expect(newCache.get("key1")).to.eq("newValue");
   });
 
   it("should evict the least recently used item", () => {

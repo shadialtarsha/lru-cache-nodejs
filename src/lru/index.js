@@ -18,6 +18,12 @@ class LRU {
   }
 
   put(key, value) {
+    // Remove the old node from the doubly linked list if exists.
+    if (this.hashMap[key]) {
+      this.doublyList.removeNode(this.hashMap[key]);
+      delete this.hashMap[key];
+    }
+
     // Insert the new value first in the doubly linked list.
     const newNode = this.doublyList.insert(key, value);
     // Save the new node as value for the passed key.
@@ -41,6 +47,7 @@ class LRU {
 
     // Remove the node from the doubly linked list.
     this.doublyList.removeNode(node);
+    delete this.hashMap[key];
 
     // Insert the node again in the beginning of the doubly list.
     this.put(key, node.value);

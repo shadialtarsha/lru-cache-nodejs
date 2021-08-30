@@ -14,7 +14,7 @@ describe("LRU Cache", () => {
     expect(newCache.size).to.eq(2);
   });
 
-  it("should by default evict old elements if none of the elements have been used", () => {
+  it("should evict by default the old elements if none of the elements have been used", () => {
     const capacity = 2;
     const newCache = new LRU(capacity);
 
@@ -25,7 +25,7 @@ describe("LRU Cache", () => {
     newCache.put("key3", "value3");
     expect(newCache.size).to.eq(2);
 
-    expect(newCache.get("key1")).to.eql(null);
+    expect(newCache.get("key1")).to.eql(-1);
   });
 
   it("should replace the value of an existing key", () => {
@@ -38,7 +38,7 @@ describe("LRU Cache", () => {
 
     newCache.put("key2", "newValue");
 
-    expect(newCache.get("key2")).to.eq(newValue);
+    expect(newCache.get("key2")).to.eq("newValue");
   });
 
   it("should evict the least recently used item", () => {
@@ -55,7 +55,7 @@ describe("LRU Cache", () => {
     expect(newCache.size).to.eq(2);
 
     expect(newCache.get("key1")).to.eq("value1");
-    expect(newCache.get("key2")).to.eql(null);
+    expect(newCache.get("key2")).to.eql(-1);
     expect(newCache.get("key3")).to.eql("value3");
   });
 });

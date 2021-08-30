@@ -20,6 +20,7 @@ class DoublyLinkedList {
 
   insert(key, value) {
     const newNode = new Node(key, value);
+
     if (this.isEmpty()) {
       this.head = newNode;
       this.tail = newNode;
@@ -34,7 +35,7 @@ class DoublyLinkedList {
 
   removeNode(node) {
     if (!node || this.isEmpty()) {
-      return;
+      return null;
     }
 
     const previousNode = node.previous;
@@ -58,6 +59,8 @@ class DoublyLinkedList {
     node.previous = null;
 
     this.size--;
+
+    return node;
   }
 
   removeTail() {

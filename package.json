@@ -1,0 +1,15 @@
+{
+  "name": "lru-cache-nodejs",
+  "version": "1.0.0",
+  "description": "A simple implementation of LRU cache",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "mocha src/**/*.test.js"
+  },
+  "author": "Shadi Altarsha",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "4.3.4",
+    "mocha": "9.1.1"
+  }
+}

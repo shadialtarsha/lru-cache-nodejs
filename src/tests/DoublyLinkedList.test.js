@@ -15,14 +15,16 @@ describe("Doubly Linked List", () => {
     expect(list.tail).to.be.null;
     expect(list.size).to.eq(0);
 
-    list.insert(3);
+    list.insert("key1", 3);
+    expect(list.head.key).to.eq("key1");
     expect(list.head.value).to.eq(3);
     expect(list.tail.value).to.eq(3);
     expect(list.head.next).to.be.null;
     expect(list.tail.next).to.be.null;
     expect(list.size).to.eq(1);
 
-    list.insert(5);
+    list.insert("key2", 5);
+    expect(list.head.key).to.eq("key2");
     expect(list.head.value).to.eq(5);
     expect(list.tail.value).to.eq(3);
     expect(list.head.next.value).to.eql(3);
@@ -37,11 +39,11 @@ describe("Doubly Linked List", () => {
     expect(list.size).to.eq(0);
 
     // value1 <-> value2 <-> value3 <-> value4 <-> value5
-    const fifthNode = list.insert("value5");
-    const fourthNode = list.insert("value4");
-    const thirdNode = list.insert("value3");
-    const secondNode = list.insert("value2");
-    const firstNode = list.insert("value1");
+    const fifthNode = list.insert("key5", "value5");
+    const fourthNode = list.insert("key4", "value4");
+    const thirdNode = list.insert("key3", "value3");
+    const secondNode = list.insert("key2", "value2");
+    const firstNode = list.insert("key1", "value1");
     expect(list.size).to.eq(5);
 
     // value1 <-> value2 <-> value4 <-> value5
@@ -89,11 +91,11 @@ describe("Doubly Linked List", () => {
     expect(list.size).to.eq(0);
 
     // value1 <-> value2 <-> value3 <-> value4 <-> value5
-    const fifthNode = list.insert("value5");
-    const fourthNode = list.insert("value4");
-    const thirdNode = list.insert("value3");
-    const secondNode = list.insert("value2");
-    const firstNode = list.insert("value1");
+    const fifthNode = list.insert("key5", "value5");
+    const fourthNode = list.insert("key4", "value4");
+    const thirdNode = list.insert("key3", "value3");
+    const secondNode = list.insert("key2", "value2");
+    const firstNode = list.insert("key1", "value1");
     expect(list.size).to.eq(5);
 
     // value1 <-> value2 <-> value3 <-> value4

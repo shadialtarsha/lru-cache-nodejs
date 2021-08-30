@@ -1,5 +1,6 @@
 class Node {
-  constructor(value, next = null, previous = null) {
+  constructor(key, value, next = null, previous = null) {
+    this.key = key;
     this.value = value;
     this.next = next;
     this.previous = previous;
@@ -17,8 +18,8 @@ class DoublyLinkedList {
     return this.size === 0;
   }
 
-  insert(value) {
-    const newNode = new Node(value);
+  insert(key, value) {
+    const newNode = new Node(key, value);
     if (this.isEmpty()) {
       this.head = newNode;
       this.tail = newNode;

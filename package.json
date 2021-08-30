@@ -4,6 +4,7 @@
   "description": "A simple implementation of LRU cache",
   "main": "src/app.js",
   "scripts": {
+    "start": "node src/app.js",
     "test": "mocha src/**/*.test.js"
   },
   "author": "Shadi Altarsha",
